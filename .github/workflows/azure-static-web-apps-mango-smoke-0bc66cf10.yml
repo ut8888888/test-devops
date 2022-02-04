@@ -10,6 +10,28 @@ on:
       - main
 
 jobs:
+
+  asciidoctor_job:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    name: Build AsciiDoctor
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - name: Check out code
+      uses: actions/checkout@v2
+    # Output command using asciidoctor-action
+    - name: Build AsciiDoc step
+      id: documents
+      uses: Analog-inc/asciidoctor-action@master
+      with:
+        shellcommand: "asciidoctor README.adoc" 
+    # Use the output from the documents step
+    - name: Save AsciiDoc step
+      uses: actions/upload-artifact@v1
+      with:
+        name: Output-document
+        path: ./index.html
+
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
@@ -32,26 +54,7 @@ jobs:
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
 
-  asciidoctor_job:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    name: Build AsciiDoctor
-    steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - name: Check out code
-      uses: actions/checkout@v2
-    # Output command using asciidoctor-action
-    - name: Build AsciiDoc step
-      id: documents
-      uses: Analog-inc/asciidoctor-action@master
-      with:
-        shellcommand: "asciidoctor README.adoc" 
-    # Use the output from the documents step
-    - name: Save AsciiDoc step
-      uses: actions/upload-artifact@v1
-      with:
-        name: Output-document
-        path: ./index.html
+
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
