@@ -1,7 +1,0 @@
-
-== データフロー図（Level0）
-
-[plantuml, dataflow-l1, svg]
-----
-include::./diagram//dfd/dfd_l1.pu[]
-----
