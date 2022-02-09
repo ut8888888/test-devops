@@ -1,0 +1,44 @@
+@startuml
+skinparam{
+  defaultFontName GenShinGothic-P CJK JP Regular
+  actorStyle awesome
+}
+left to right direction
+
+actor 作業者 as a1
+actor 管理者 as a2
+
+rectangle {
+  database 作業者基本情報 as dkk
+
+  (作業者登録) as register
+  (作業者削除) as delete
+  (作業者参照) as preview
+  (作業者変更) as edit
+
+  a1 --> register:作業者情報
+  register --> dkk:会員基本情報
+
+  a1 --> delete
+  delete --> dkk:会員基本情報
+
+  a1 --> preview
+  preview --> dkk:会員基本情報
+
+  a2 --> preview
+  preview --> dkk:会員基本情報
+
+  a2 --> delete
+  preview --> dkk:会員基本情報
+
+  a1 --> edit
+  edit --> dkk:会員基本情報
+}
+
+legend top right
+  ※点線部分は将来構想
+end legend
+
+
+
+@enduml

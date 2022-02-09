@@ -1,0 +1,28 @@
+:lang: ja
+:doctype: book
+:toc: left
+:toclevels: 4
+:toc-title: 目次
+:sectnums:
+:sectnumlevels: 4
+:sectlinks:
+:icons: font
+:source-highlighter: rouge
+:example-caption: 例
+:table-caption: 表
+:figure-caption: 図
+:sectnums:
+:chapter-label:
+:experimental:
+:imagesdir: images/source
+:pdf-fontsdir: fonts
+:pdf-style: style/custom-theme.yml
+:title-logo-image: image:../theme/GitHub-Logo.png[width="300"]
+
+:src-dir: ./source/01.poc_scorp
+
+= PoCスコープ定義書
+include::{src-dir}/overview.adoc[]
+include::{src-dir}/business_flow.adoc[]
+include::{src-dir}/system_overview.adoc[]
+include::{src-dir}/dfd_level0.adoc[]

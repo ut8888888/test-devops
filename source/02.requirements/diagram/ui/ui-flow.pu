@@ -1,0 +1,12 @@
+@startuml
+skinparam{
+  defaultFontName GenShinGothic-P CJK JP Regular
+}
+left to right direction
+
+[*] --> ログイン画面
+ログイン画面--> メインメニュー : ログイン
+ログイン画面: 機能:00001
+ログイン画面: 機能:00002
+
+@enduml

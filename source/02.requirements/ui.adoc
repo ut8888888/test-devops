@@ -1,0 +1,10 @@
+
+== 画面に関する事項
+
+=== 画面遷移図
+[plantuml, uiflow, svg]
+----
+include::./diagram/ui/ui-flow.pu[]
+----
+
+

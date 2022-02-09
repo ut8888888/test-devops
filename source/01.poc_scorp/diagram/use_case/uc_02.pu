@@ -1,0 +1,17 @@
+@startuml
+skinparam{
+  defaultFontName GenShinGothic-P CJK JP Regular
+}
+left to right direction
+
+:管理者:
+
+rectangle "資格/スキルの管理ができるようになる" {
+    package 資格/スキル管理 {
+        管理者--->(資格/スキルの新規登録をする)
+        管理者--->(資格/スキルの情報を見る)
+        管理者--->(資格/スキルの情報を変更)
+        管理者--->(資格/スキルの削除をする)
+    }
+}
+@enduml
