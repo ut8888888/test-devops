@@ -57,13 +57,30 @@ if [[ $INPUT_SLIDES_SKIP_ASCIIDOCTOR_BUILD == false ]]; then
     find . -name "*$INPUT_ADOC_FILE_EXT" | xargs git rm -f --cached
 fi
 
-PDF_FILE="ebook.pdf"
+# PDF_FILE="ebook.pdf"
+# if [[ $INPUT_PDF_BUILD == true ]]; then 
+#     INPUT_EBOOK_MAIN_ADOC_FILE="$INPUT_EBOOK_MAIN_ADOC_FILE$INPUT_ADOC_FILE_EXT"
+#     MSG="Building $PDF_FILE ebook from $INPUT_EBOOK_MAIN_ADOC_FILE"
+#     echo $MSG
+#     asciidoctor-pdf "$INPUT_EBOOK_MAIN_ADOC_FILE" -o "$PDF_FILE" $INPUT_ASCIIDOCTOR_PARAMS
+# fi
+
+PDF_FILE="01_poc_scorp.pdf"
 if [[ $INPUT_PDF_BUILD == true ]]; then 
-    INPUT_EBOOK_MAIN_ADOC_FILE="$INPUT_EBOOK_MAIN_ADOC_FILE$INPUT_ADOC_FILE_EXT"
-    MSG="Building $PDF_FILE ebook from $INPUT_EBOOK_MAIN_ADOC_FILE"
+    INPUT_PDF_POC_SCORP_ADOC_FILE="$INPUT_PDF_POC_SCORP_ADOC_FILE$INPUT_ADOC_FILE_EXT"
+    MSG="Building $PDF_FILE ebook from $INPUT_PDF_POC_SCORP_ADOC_FILE"
     echo $MSG
-    asciidoctor-pdf "$INPUT_EBOOK_MAIN_ADOC_FILE" -o "$PDF_FILE" $INPUT_ASCIIDOCTOR_PARAMS
+    asciidoctor-pdf "$INPUT_PDF_POC_SCORP_ADOC_FILE" -o "$PDF_FILE" $INPUT_ASCIIDOCTOR_PARAMS
 fi
+
+PDF_FILE2="02_requirements.pdf"
+if [[ $INPUT_PDF_BUILD == true ]]; then 
+    INPUT_PDF_REQUIREMENTS_ADOC_FILE="$INPUT_PDF_REQUIREMENTS_ADOC_FILE$INPUT_ADOC_FILE_EXT"
+    MSG="Building $PDF_FILE2 ebook from $INPUT_PDF_REQUIREMENTS_ADOC_FILE"
+    echo $MSG
+    asciidoctor-pdf "$INPUT_PDF_REQUIREMENTS_ADOC_FILE" -o "$PDF_FILE2" $INPUT_ASCIIDOCTOR_PARAMS
+fi
+
 
 SLIDES_FILE="slides.html"
 if [[ $INPUT_SLIDES_BUILD == true ]]; then 
@@ -88,6 +105,7 @@ fi
 
 if [[ $INPUT_PDF_BUILD == true ]]; then 
     git add -f "$PDF_FILE"; 
+    git add -f "$PDF_FILE2"; 
 fi
 
 if [[ $INPUT_SLIDES_BUILD == true ]]; then 
