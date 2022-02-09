@@ -24,7 +24,7 @@ jobs:
     - name: asciidoctor-ghpages
       uses: manoelcampos/asciidoctor-ghpages-action@v2
       with:
-        asciidoctor_params: --attribute=nofooter
+        asciidoctor_params: --attribute=nofooter -r asciidoctor-diagram
         pdf_build: true
         ebook_main_adoc_file: 01_poc_scorp
         # adoc_file_ext: .ascii # default is .adoc
