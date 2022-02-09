@@ -26,8 +26,6 @@ jobs:
       with:
         asciidoctor_params: --attribute=nofooter -r asciidoctor-diagram
         pdf_build: true
-        pdf_poc_scorp_adoc_file: 01_poc_scorp
-        pdf_requirements_adoc_file: 02_requirements
         # adoc_file_ext: .ascii # default is .adoc
         # source_dir: docs/ # default is .
         # slides_build: true

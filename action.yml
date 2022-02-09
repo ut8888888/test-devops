@@ -25,14 +25,6 @@ inputs:
     description: 'Defines the name of the main AsciiDoc file that will be used if you are generating an ebook in PDF or any other supported format. For instance, if the main ebook file is "ebook.adoc", just inform "ebook" here.'
     default: 'README'
     required: false
-  pdf_poc_scorp_adoc_file:
-    description: 'Defines the name of the main AsciiDoc file that will be used if you are generating an ebook in PDF or any other supported format. For instance, if the main ebook file is "ebook.adoc", just inform "ebook" here.'
-    default: '01_poc_scorp'
-    required: false
-  pdf_requirements_adoc_file:
-    description: 'Defines the name of the main AsciiDoc file that will be used if you are generating an ebook in PDF or any other supported format. For instance, if the main ebook file is "ebook.adoc", just inform "ebook" here.'
-    default: '02_requirements'
-    required: false
   slides_build:
     description: 'Defines if a slides.html file should be built using AsciiDoc Reveal.js. The slides.html file is generated inside the gh-pages branch.'
     default: 'false'
@@ -66,7 +58,5 @@ runs:
     - ${{ inputs.slides_skip_asciidoctor_build }}
     - ${{ inputs.pdf_build }}
     - ${{ inputs.ebook_main_adoc_file }}
-    - ${{ inputs.pdf_poc_scorp_adoc_file }}
-    - ${{ inputs.pdf_requirements_adoc_file }}
     - ${{ inputs.pre_build }}
     - ${{ inputs.post_build }}
